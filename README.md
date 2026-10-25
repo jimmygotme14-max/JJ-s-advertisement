@@ -22,5 +22,5 @@ The `dist/` folder can be uploaded to any static host (GitHub Pages, Netlify, Ve
 
 ## Before going live
 
-- Replace the placeholder email `hello@jjsadvertising.com` in `src/data/site.js`.
+- Replace the placeholder email jimmygotme14@gmail.com` in `src/data/site.js`.
 - The contact form doesn't send anywhere yet. Create a form endpoint (for example at formspree.io) and paste its URL into `formEndpoint` in `src/data/site.js`.
