@@ -22,6 +22,7 @@ export default function Footer() {
         <div>
           <span className="label">Get in touch</span>
           <p className="footer-email">{site.email}</p>
+          <a className="footer-email footer-phone" href={`tel:${site.phoneLink}`}>{site.phone}</a>
           <Link className="btn btn-ghost btn-sm" to="/contact">Start a project</Link>
         </div>
       </div>

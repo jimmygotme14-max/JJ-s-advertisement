@@ -499,3 +499,8 @@ button { font: inherit; }
 .form-success .label { color: var(--teal); }
 .form-success h3 { font-family: var(--display); font-stretch: 70%; font-weight: 900; font-size: var(--step-3); line-height: 0.95; text-transform: uppercase; }
 .form-success p { color: var(--muted); font-size: var(--step-1); max-width: 30rem; }
+
+/* Phone links */
+.contact-phone { user-select: text; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--teal); }
+.contact-phone:hover, .footer-phone:hover { color: var(--teal); }
+.footer-phone { text-decoration: none; font-variant-numeric: tabular-nums; }

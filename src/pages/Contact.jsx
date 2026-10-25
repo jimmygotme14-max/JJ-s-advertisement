@@ -43,7 +43,7 @@ export default function Contact() {
         proof="Proof 07 · Contact"
         eyebrow="Reply within one business day"
         title={<>Let's make something people <span className="hit">notice</span>.</>}
-        intro="Tell us about your business and what you want to achieve. There's no cost and no obligation."
+        intro={`Tell us about your business and what you want to achieve, or call us at ${site.phone}. There's no cost and no obligation.`}
       />
 
       <section className="section section-tight">
@@ -56,6 +56,10 @@ export default function Contact() {
               <span className="label">Email us directly</span>
               <p className="contact-email" id="contact-email">{site.email}</p>
               <button type="button" className="btn btn-ghost btn-sm" onClick={copyEmail}>{copied ? 'Copied' : 'Copy email'}</button>
+            </div>
+            <div>
+              <span className="label">Call us</span>
+              <a className="contact-email contact-phone" href={`tel:${site.phoneLink}`}>{site.phone}</a>
             </div>
             <div>
               <span className="label">What happens next</span>

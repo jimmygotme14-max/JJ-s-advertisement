@@ -112,7 +112,7 @@ export default function ContactForm() {
           {state.submitting ? 'Sending…' : 'Send message'}
         </button>
         <span className={`form-status${checkError || sendFailed ? ' error' : ''}`} role="status" aria-live="polite">
-          {checkError || (sendFailed ? `The message didn't go through. Try again, or email us at ${site.email}.` : '')}
+          {checkError || (sendFailed ? `The message didn't go through. Try again, call us at ${site.phone}, or email us at ${site.email}.` : '')}
         </span>
       </div>
     </form>
