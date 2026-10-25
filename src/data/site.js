@@ -1,7 +1,7 @@
 // Edit your agency details here. They are used across every page.
 export const site = {
   name: "JJ's Advertising",
-  email: 'hello@jjsadvertising.com',
+  email: 'jjsadvertisment@gmail.com',
   // Formspree form ID (from https://formspree.io/f/xrpppgzz). Contact form messages go to the email on that Formspree account.
   formspreeId: 'xrpppgzz',
 };

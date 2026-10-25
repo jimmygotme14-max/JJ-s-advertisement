@@ -26,5 +26,5 @@ The contact form sends through Formspree (form ID `xrpppgzz`, set in `src/data/s
 
 ## Before going live
 
-- Replace the placeholder email `hello@jjsadvertising.com` in `src/data/site.js`. It is shown on the site and used as the fallback if the form can't send.
+- Check the contact email in `src/data/site.js` (currently `jjsadvertisment@gmail.com`). It is shown on the site and used as the fallback if the form can't send.
 - Optional: in Formspree's form settings, restrict submissions to your website's domain once it is live.
