@@ -12,6 +12,18 @@ npm run build     # production files go to dist/
 
 The `dist/` folder can be uploaded to any static host (GitHub Pages, Netlify, Vercel, cPanel). Links use `#/page` addresses, so no server setup is needed.
 
+## Publishing on GitHub Pages
+
+`.github/workflows/deploy.yml` builds and publishes the site every time `main` changes.
+
+1. Make the repo public (free GitHub Pages needs this). The workflow skips itself while the repo is private.
+2. In the repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+3. Go to **Actions → Deploy website → Run workflow** for the first publish. After that it runs on every change.
+
+The site is then live at https://jimmygotme14-max.github.io/JJ-s-advertisement/
+
+**Custom domain:** buy the domain, then add it under **Settings → Pages → Custom domain** and follow GitHub's DNS instructions at your domain registrar.
+
 ## Where to edit
 
 - **Agency details, email, Formspree form ID:** `src/data/site.js`
