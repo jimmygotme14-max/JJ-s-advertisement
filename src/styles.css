@@ -438,7 +438,7 @@ button { font: inherit; }
 .footer-links { list-style: none; display: grid; gap: 6px; }
 .footer-links a { text-decoration: none; color: var(--muted); }
 .footer-links a:hover { color: var(--teal); }
-.footer-email { font-weight: 600; word-break: break-word; }
+.footer-email { font-weight: 600; overflow-wrap: break-word; }
 .footer-base { display: grid; gap: 16px; margin-top: 48px; }
 
 /* Responsive */
@@ -504,3 +504,14 @@ button { font: inherit; }
 .contact-phone { user-select: text; text-decoration-thickness: 2px; text-underline-offset: 6px; text-decoration-color: var(--teal); }
 .contact-phone:hover, .footer-phone:hover { color: var(--teal); }
 .footer-phone { text-decoration: none; font-variant-numeric: tabular-nums; }
+
+/* Report a website problem */
+.footer-base-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; }
+.report-link { color: var(--muted); font-size: 0.9rem; text-underline-offset: 4px; text-decoration-color: var(--line); }
+.report-link:hover { color: var(--teal); text-decoration-color: var(--teal); }
+.problem-note { padding: 20px; border: 1px dashed var(--line); border-radius: 2px; width: 100%; }
+.problem-note p { color: var(--muted); }
+.problem-box { display: grid; gap: 18px; justify-items: start; max-width: 46rem; }
+.problem-box .label { color: var(--teal); }
+.problem-box h1 { font-family: var(--display); font-stretch: 70%; font-weight: 900; font-size: var(--step-3); line-height: 0.95; text-transform: uppercase; }
+.problem-box p { color: var(--muted); font-size: var(--step-1); }

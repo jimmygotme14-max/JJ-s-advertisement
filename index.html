@@ -10,9 +10,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <style>
+      .boot-fallback { max-width: 34rem; margin: 15vh auto 0; padding: 0 20px; font: 17px/1.6 system-ui, sans-serif; color: #ffffff; opacity: 0; animation: boot-show 0s 4s forwards; }
+      .boot-fallback.no-delay { opacity: 1; animation: none; }
+      .boot-fallback a { color: #2ee6d0; }
+      .boot-fallback p { margin: 0 0 12px; }
+      @keyframes boot-show { to { opacity: 1; } }
+      html, body { background: #071226; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Shown only if the site fails to load. React replaces it once the site starts.
+           Keep the email and phone here in sync with src/data/site.js. -->
+      <div class="boot-fallback">
+        <p><strong>JJ's Advertising</strong></p>
+        <p>The website is having trouble loading. Try refreshing the page.</p>
+        <p>Still not working? <a href="mailto:jjsadvertisment@gmail.com?subject=Website%20problem%3A%20site%20won%27t%20load">Email us at jjsadvertisment@gmail.com</a> or call <a href="tel:+18437647517">(843) 764-7517</a>.</p>
+      </div>
+    </div>
+    <noscript>
+      <div class="boot-fallback no-delay">
+        <p><strong>JJ's Advertising</strong></p>
+        <p>This website needs JavaScript turned on. You can also email us at jjsadvertisment@gmail.com or call (843) 764-7517.</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

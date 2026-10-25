@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PageHero from '../components/PageHero.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import ContactForm from '../components/ContactForm.jsx';
+import ReportProblemLink from '../components/ReportProblemLink.jsx';
 import usePageTitle from '../components/usePageTitle.js';
 import { site } from '../data/site.js';
 
@@ -60,6 +61,11 @@ export default function Contact() {
             <div>
               <span className="label">Call us</span>
               <a className="contact-email contact-phone" href={`tel:${site.phoneLink}`}>{site.phone}</a>
+            </div>
+            <div className="problem-note">
+              <span className="label">Website not working?</span>
+              <p>If a page won't load, a button does nothing or something looks wrong, email us. We'll include the page you're on so we can fix it fast.</p>
+              <ReportProblemLink className="btn btn-ghost btn-sm">Report a website problem</ReportProblemLink>
             </div>
             <div>
               <span className="label">What happens next</span>

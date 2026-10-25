@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Logo from './Logo.jsx';
 import TintBar from './TintBar.jsx';
+import ReportProblemLink from './ReportProblemLink.jsx';
 import { nav, site } from '../data/site.js';
 
 export default function Footer() {
@@ -21,14 +22,17 @@ export default function Footer() {
         </div>
         <div>
           <span className="label">Get in touch</span>
-          <p className="footer-email">{site.email}</p>
+          <p className="footer-email">{site.email.split('@')[0]}@<wbr />{site.email.split('@')[1]}</p>
           <a className="footer-email footer-phone" href={`tel:${site.phoneLink}`}>{site.phone}</a>
           <Link className="btn btn-ghost btn-sm" to="/contact">Start a project</Link>
         </div>
       </div>
       <div className="wrap footer-base">
         <TintBar thin />
-        <span className="label">© {new Date().getFullYear()} {site.name}. All rights reserved.</span>
+        <div className="footer-base-row">
+          <span className="label">© {new Date().getFullYear()} {site.name}. All rights reserved.</span>
+          <ReportProblemLink className="report-link">Website not working right? Email us</ReportProblemLink>
+        </div>
       </div>
     </footer>
   );
