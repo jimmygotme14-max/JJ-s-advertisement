@@ -1,65 +1,84 @@
 import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { site } from '../data/site.js';
 
-const empty = { name: '', email: '', company: '', service: '', budget: '', message: '' };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function ContactForm() {
-  const [values, setValues] = useState(empty);
-  const [status, setStatus] = useState({ text: '', error: false });
-  const [sending, setSending] = useState(false);
+  const [state, submitToFormspree, reset] = useForm(site.formspreeId, {
+    data: { _subject: "New enquiry from the JJ's Advertising website" },
+  });
+  const [checkError, setCheckError] = useState('');
+  const [networkFailed, setNetworkFailed] = useState(false);
+  const [sender, setSender] = useState('');
 
-  const update = e => setValues(v => ({ ...v, [e.target.name]: e.target.value }));
+  async function onSubmit(e) {
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const message = String(data.get('message') || '').trim();
 
-  async function submit(e) {
-    e.preventDefault();
-    const { name, email, message } = values;
-    if (!name.trim() || !email.trim() || !message.trim()) {
-      setStatus({ text: 'Please fill in your name, email and message.', error: true });
+    if (!name || !email || !message) {
+      e.preventDefault();
+      setCheckError('Please fill in your name, email and message.');
       return;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setStatus({ text: 'That email address looks incomplete. Check it and try again.', error: true });
+    if (!EMAIL_RE.test(email)) {
+      e.preventDefault();
+      setCheckError('That email address looks incomplete. Check it and try again.');
       return;
     }
-    if (!site.formEndpoint) {
-      setStatus({ text: `Online messages aren't set up yet. Please email us at ${site.email}.`, error: true });
-      return;
-    }
-    setSending(true);
-    setStatus({ text: 'Sending…', error: false });
+
+    setCheckError('');
+    setNetworkFailed(false);
+    setSender(name);
     try {
-      const res = await fetch(site.formEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(values),
-      });
-      if (!res.ok) throw new Error('Bad response');
-      setValues(empty);
-      setStatus({ text: `Thanks, ${name.trim()}. We'll reply within one business day.`, error: false });
+      await submitToFormspree(e);
     } catch {
-      setStatus({ text: `The message didn't go through. Please email us at ${site.email}.`, error: true });
-    } finally {
-      setSending(false);
+      setNetworkFailed(true);
     }
   }
 
+  function startOver() {
+    reset();
+    setSender('');
+    setCheckError('');
+    setNetworkFailed(false);
+  }
+
+  if (state.succeeded) {
+    return (
+      <div className="form-success" role="status">
+        <span className="label">Message sent</span>
+        <h3>Thanks, {sender || 'friend'}.</h3>
+        <p>Your message is with our team. We reply within one business day, usually sooner.</p>
+        <button type="button" className="btn btn-ghost btn-sm" onClick={startOver}>Send another message</button>
+      </div>
+    );
+  }
+
+  const fieldErrors = field => state.errors?.getFieldErrors(field)?.length > 0;
+  const sendFailed = networkFailed || (state.errors?.getFormErrors()?.length > 0);
+
   return (
-    <form className="contact-form" onSubmit={submit} noValidate>
+    <form className="contact-form" onSubmit={onSubmit} noValidate>
       <div className="field">
         <label htmlFor="f-name">Name</label>
-        <input id="f-name" name="name" type="text" autoComplete="name" value={values.name} onChange={update} required />
+        <input id="f-name" name="name" type="text" autoComplete="name" required />
       </div>
       <div className="field">
         <label htmlFor="f-email">Email</label>
-        <input id="f-email" name="email" type="email" autoComplete="email" value={values.email} onChange={update} required />
+        <input id="f-email" name="email" type="email" autoComplete="email" required
+          aria-invalid={fieldErrors('email') || undefined} aria-describedby="err-email" />
+        <ValidationError id="err-email" className="field-error" prefix="Email" field="email" errors={state.errors} />
       </div>
       <div className="field">
         <label htmlFor="f-company">Company</label>
-        <input id="f-company" name="company" type="text" autoComplete="organization" value={values.company} onChange={update} />
+        <input id="f-company" name="company" type="text" autoComplete="organization" />
       </div>
       <div className="field">
         <label htmlFor="f-service">What do you need?</label>
-        <select id="f-service" name="service" value={values.service} onChange={update}>
+        <select id="f-service" name="service" defaultValue="">
           <option value="">Choose a service</option>
           <option>Advertising campaign</option>
           <option>Facebook &amp; Instagram ads</option>
@@ -70,7 +89,7 @@ export default function ContactForm() {
       </div>
       <div className="field full">
         <label htmlFor="f-budget">Monthly budget</label>
-        <select id="f-budget" name="budget" value={values.budget} onChange={update}>
+        <select id="f-budget" name="budget" defaultValue="">
           <option value="">Choose a range</option>
           <option>Under $2,500</option>
           <option>$2,500 – $10,000</option>
@@ -80,11 +99,21 @@ export default function ContactForm() {
       </div>
       <div className="field full">
         <label htmlFor="f-message">Tell us about your project</label>
-        <textarea id="f-message" name="message" value={values.message} onChange={update} required />
+        <textarea id="f-message" name="message" required
+          aria-invalid={fieldErrors('message') || undefined} aria-describedby="err-message" />
+        <ValidationError id="err-message" className="field-error" prefix="Message" field="message" errors={state.errors} />
       </div>
+
+      {/* Spam trap: hidden from people, filled in by bots. Formspree discards anything that fills it. */}
+      <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="honeypot" aria-hidden="true" />
+
       <div className="form-actions">
-        <button className="btn btn-primary" type="submit" disabled={sending}>{sending ? 'Sending…' : 'Send message'}</button>
-        <span className={`form-status${status.error ? ' error' : ''}`} role="status" aria-live="polite">{status.text}</span>
+        <button className="btn btn-primary" type="submit" disabled={state.submitting}>
+          {state.submitting ? 'Sending…' : 'Send message'}
+        </button>
+        <span className={`form-status${checkError || sendFailed ? ' error' : ''}`} role="status" aria-live="polite">
+          {checkError || (sendFailed ? `The message didn't go through. Try again, or email us at ${site.email}.` : '')}
+        </span>
       </div>
     </form>
   );

@@ -2,8 +2,8 @@
 export const site = {
   name: "JJ's Advertising",
   email: 'hello@jjsadvertising.com',
-  // Paste a form service URL here (for example a Formspree endpoint) so the contact form sends messages.
-  formEndpoint: '',
+  // Formspree form ID (from https://formspree.io/f/xrpppgzz). Contact form messages go to the email on that Formspree account.
+  formspreeId: 'xrpppgzz',
 };
 
 export const nav = [

@@ -14,13 +14,17 @@ The `dist/` folder can be uploaded to any static host (GitHub Pages, Netlify, Ve
 
 ## Where to edit
 
-- **Agency details, email, form setup:** `src/data/site.js`
+- **Agency details, email, Formspree form ID:** `src/data/site.js`
 - **Portfolio pieces:** the `work` list in `src/data/site.js`. The current pieces are concept work; swap in real client projects when you have them.
 - **Page text:** `src/pages/`
 - **Colors and fonts:** the `:root` block at the top of `src/styles.css`
 - **Logo:** `public/logo.jpg` and `public/logo-small.jpg`
 
+## Contact form
+
+The contact form sends through Formspree (form ID `xrpppgzz`, set in `src/data/site.js`) using `@formspree/react`. Messages go to the email address on your Formspree account, with the subject "New enquiry from the JJ's Advertising website". A hidden `_gotcha` field filters out spam bots.
+
 ## Before going live
 
-- Replace the placeholder email `hello@jjsadvertising.com` in `src/data/site.js`.
-- The contact form doesn't send anywhere yet. Create a form endpoint (for example at formspree.io) and paste its URL into `formEndpoint` in `src/data/site.js`.
+- Replace the placeholder email `hello@jjsadvertising.com` in `src/data/site.js`. It is shown on the site and used as the fallback if the form can't send.
+- Optional: in Formspree's form settings, restrict submissions to your website's domain once it is live.

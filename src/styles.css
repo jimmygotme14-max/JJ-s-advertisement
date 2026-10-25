@@ -489,3 +489,13 @@ button { font: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Contact form: Formspree states */
+.field-error { color: var(--teal); font-size: 0.875rem; }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-bottom-color: var(--teal); }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.contact-panel { position: relative; }
+.form-success { display: grid; gap: 14px; justify-items: start; padding-block: 12px; }
+.form-success .label { color: var(--teal); }
+.form-success h3 { font-family: var(--display); font-stretch: 70%; font-weight: 900; font-size: var(--step-3); line-height: 0.95; text-transform: uppercase; }
+.form-success p { color: var(--muted); font-size: var(--step-1); max-width: 30rem; }
