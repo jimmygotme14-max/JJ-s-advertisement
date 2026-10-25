@@ -1,7 +1,7 @@
 // Edit your agency details here. They are used across every page.
 export const site = {
   name: "JJ's Advertising",
-  email: 'jjsadvertisment.com',
+  email: 'jjsadvertisment@gmail.com',
   // Paste a form service URL here (for example a Formspree endpoint) so the contact form sends messages.
   formEndpoint: '',
 };
