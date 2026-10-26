@@ -38,6 +38,6 @@ The contact form sends through Formspree (form ID `xrpppgzz`, set in `src/data/s
 
 ## Before going live
 
-- Check the contact email and phone number in `src/data/site.js` (currently `jjsadvertisment@gmail.com` and (843) 764-7517). Both are shown on the site and offered as fallbacks if the form can't send.
+- Check the contact email and phone number in `src/data/site.js` (currently `jjsadvertisement@gmail.com` and (843) 764-7517). Both are shown on the site and offered as fallbacks if the form can't send.
 - If you change the email or phone, also update them in `index.html`. That copy is the backup message shown if the site fails to load.
 - Optional: in Formspree's form settings, restrict submissions to your website's domain once it is live.

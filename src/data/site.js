@@ -1,7 +1,7 @@
 // Edit your agency details here. They are used across every page.
 export const site = {
   name: "JJ's Advertising",
-  email: 'jjsadvertisment@gmail.com',
+  email: 'jjsadvertisement@gmail.com',
   phone: '(843) 764-7517',
   phoneLink: '+18437647517', // used for tap-to-call links
   // Formspree form ID (from https://formspree.io/f/xrpppgzz). Contact form messages go to the email on that Formspree account.
