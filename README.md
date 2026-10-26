@@ -20,7 +20,7 @@ The `dist/` folder can be uploaded to any static host (GitHub Pages, Netlify, Ve
 2. In the repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 3. Go to **Actions → Deploy website → Run workflow** for the first publish. After that it runs on every change.
 
-The site is live at https://jjsadvertismenet.com (custom domain set in **Settings → Pages**; DNS is at Cloudflare, set to "DNS only").
+The site is live at https://jjsadvertisement.com (custom domain set in **Settings → Pages**; DNS is at Cloudflare, set to "DNS only"). The misspelled jjsadvertismenet.com forwards there with a Cloudflare redirect rule.
 
 **Custom domain:** buy the domain, then add it under **Settings → Pages → Custom domain** and follow GitHub's DNS instructions at your domain registrar.
 
