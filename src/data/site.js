@@ -13,7 +13,7 @@ export const site = {
 export const social = [
   { label: 'Facebook', url: 'https://www.facebook.com/share/1C9YNNbVnM/' },
   { label: 'Instagram', url: '' },
-  { label: 'TikTok', url: '' },
+  { label: 'TikTok', url: 'https://www.tiktok.com/@jj_advertisement' },
 ];
 
 export const nav = [
