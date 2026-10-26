@@ -515,3 +515,11 @@ button { font: inherit; }
 .problem-box .label { color: var(--teal); }
 .problem-box h1 { font-family: var(--display); font-stretch: 70%; font-weight: 900; font-size: var(--step-3); line-height: 0.95; text-transform: uppercase; }
 .problem-box p { color: var(--muted); font-size: var(--step-1); }
+
+/* Social links in footer */
+.social-links { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.social-links a {
+  display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
+  font: 500 0.75rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; color: var(--muted);
+}
+.social-links a:hover { border-color: var(--teal); color: var(--teal); }

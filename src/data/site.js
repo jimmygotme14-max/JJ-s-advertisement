@@ -8,6 +8,14 @@ export const site = {
   formspreeId: 'xrpppgzz',
 };
 
+// Social profiles shown in the footer. Paste each full link (starting with https://).
+// Any left empty are hidden.
+export const social = [
+  { label: 'Facebook', url: '' },
+  { label: 'Instagram', url: '' },
+  { label: 'TikTok', url: '' },
+];
+
 export const nav = [
   { to: '/services', label: 'Services' },
   { to: '/facebook-instagram', label: 'Facebook & Instagram' },

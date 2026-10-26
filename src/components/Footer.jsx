@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Logo from './Logo.jsx';
 import TintBar from './TintBar.jsx';
 import ReportProblemLink from './ReportProblemLink.jsx';
-import { nav, site } from '../data/site.js';
+import { nav, site, social } from '../data/site.js';
 
 export default function Footer() {
   return (
@@ -25,6 +25,15 @@ export default function Footer() {
           <p className="footer-email">{site.email.split('@')[0]}@<wbr />{site.email.split('@')[1]}</p>
           <a className="footer-email footer-phone" href={`tel:${site.phoneLink}`}>{site.phone}</a>
           <Link className="btn btn-ghost btn-sm" to="/contact">Start a project</Link>
+          {social.some(s => s.url) && (
+            <ul className="social-links" aria-label="Follow us">
+              {social.filter(s => s.url).map(s => (
+                <li key={s.label}>
+                  <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
       <div className="wrap footer-base">
