@@ -12,7 +12,7 @@ export const site = {
 // Any left empty are hidden.
 export const social = [
   { label: 'Facebook', url: 'https://www.facebook.com/share/1C9YNNbVnM/' },
-  { label: 'Instagram', url: '' },
+  { label: 'Instagram', url: 'https://www.instagram.com/jjsadvertise' },
   { label: 'TikTok', url: 'https://www.tiktok.com/@jj_advertisement' },
 ];
 
