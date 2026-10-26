@@ -11,7 +11,7 @@ export const site = {
 // Social profiles shown in the footer. Paste each full link (starting with https://).
 // Any left empty are hidden.
 export const social = [
-  { label: 'Facebook', url: '' },
+  { label: 'Facebook', url: 'https://www.facebook.com/share/1C9YNNbVnM/' },
   { label: 'Instagram', url: '' },
   { label: 'TikTok', url: '' },
 ];
