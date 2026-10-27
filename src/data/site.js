@@ -28,8 +28,8 @@ export const offerings = [
   {
     to: '/services',
     title: 'Advertising campaigns',
-    text: 'Strategy, creative and media buying for billboards, print, search and display.',
-    spec: '14 × 48 ft · 728 × 90 · 300 × 250',
+    text: 'Strategy, creative and ad placement for search, display and print.',
+    spec: 'Search ads · 728 × 90 · 300 × 250',
   },
   {
     to: '/facebook-instagram',
@@ -64,9 +64,9 @@ export const work = [
   { id: 'bakery', title: 'Still Warm', sector: 'Bakery', category: 'Social', format: 'story', formatLabel: 'Instagram story · 9:16',
     headline: 'Still warm at 7am.', tag: 'Sponsored', cta: 'Order ahead', bg: '#f4d9b8', fg: '#3a1f0b', accent: '#c2410c',
     text: 'A morning story ad that sends nearby customers to pre-order before the rush.' },
-  { id: 'gym', title: 'Open Late', sector: 'Gym', category: 'Outdoor', format: 'billboard', formatLabel: 'Billboard · 14 × 48 ft',
-    headline: "Your excuses close at 9. We don't.", tag: 'Open until midnight', bg: '#0b0f14', fg: '#ffffff', accent: '#2ee6d0',
-    text: 'A roadside billboard aimed at commuters driving home after work.' },
+  { id: 'gym', title: 'Open Late', sector: 'Gym', category: 'Social', format: 'feed', formatLabel: 'Facebook feed · 4:5',
+    headline: "Your excuses close at 9. We don't.", tag: 'Open until midnight', cta: 'Get a free pass', bg: '#0b0f14', fg: '#ffffff', accent: '#2ee6d0',
+    text: 'A feed ad aimed at locals who need a gym that fits around their work hours.' },
   { id: 'auto', title: 'Spring Tune-Up', sector: 'Auto repair', category: 'Email', format: 'email', formatLabel: 'Email · 600 px',
     headline: 'Your car called. It wants a check-up.', tag: 'Spring service', cta: 'Book a slot', bg: '#1d4ed8', fg: '#ffffff', accent: '#facc15',
     text: 'A seasonal reminder email sent to past customers, with one-tap booking.' },

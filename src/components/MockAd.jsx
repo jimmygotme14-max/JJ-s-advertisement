@@ -1,7 +1,7 @@
 // Draws a sample ad at the true proportions of its format.
 const ratios = {
   story: '9 / 16', reel: '9 / 16', feed: '4 / 5', square: '1 / 1',
-  billboard: '48 / 14', rect: '300 / 250', leader: '728 / 90', video: '16 / 9', email: '3 / 4',
+  rect: '300 / 250', leader: '728 / 90', video: '16 / 9', email: '3 / 4',
 };
 const tall = new Set(['story', 'reel', 'feed', 'square', 'email', 'rect']);
 
@@ -33,7 +33,6 @@ export default function MockAd({ format, headline, tag, cta, bg, fg, accent, fit
             </>
           )}
           {cta && format !== 'video' && format !== 'reel' && <span className="mock-cta">{cta}</span>}
-          {format === 'billboard' && <span className="mock-dot" aria-hidden="true" />}
         </div>
       )}
     </div>

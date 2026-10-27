@@ -240,10 +240,6 @@ button { font: inherit; }
 .mock-story .mock-cta { align-self: center; }
 .mock-square .mock-line { font-size: 12cqw; }
 .mock-rect .mock-line { font-size: 12cqw; }
-.mock-billboard .mock-body { padding: 4cqw 4.5cqw; }
-.mock-billboard .mock-tag { font-size: max(7px, 1.4cqw); }
-.mock-billboard .mock-line { font-size: 6.6cqw; max-width: 72%; position: relative; z-index: 1; }
-.mock-dot { position: absolute; right: 4.5cqw; bottom: 4cqw; width: 12cqw; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 35%, var(--teal), var(--teal-deep) 70%); }
 .mock-leader .mock-body { flex-direction: row; align-items: center; padding: 0 2.5cqw; gap: 2cqw; }
 .mock-leader .mock-line { font-size: 3.6cqw; margin: 0; white-space: nowrap; }
 .mock-leader .mock-cta { margin-left: auto; align-self: center; font-size: max(7px, 1.6cqw); border-radius: 2px; }
@@ -279,11 +275,10 @@ button { font: inherit; }
 .mock-email .mock-cta { margin: 0 7cqw; color: #111827; border-radius: 2px; }
 
 /* Services: format grid */
-.format-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); grid-template-areas: "bill bill" "story side"; gap: clamp(20px, 3vw, 32px); }
+.format-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); grid-template-areas: "story side"; gap: clamp(20px, 3vw, 32px); }
 .format { display: grid; gap: 10px; align-content: start; min-width: 0; margin: 0; }
 .format figcaption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .format figcaption strong { font-weight: 700; color: var(--ink); }
-.f-bill { grid-area: bill; }
 .f-story { grid-area: story; }
 .f-story .mock { max-width: 340px; }
 .f-side { grid-area: side; display: grid; gap: clamp(20px, 3vw, 32px); align-content: start; }
@@ -478,7 +473,7 @@ button { font: inherit; }
 }
 @media (max-width: 640px) {
   .offer-grid, .work-grid, .objectives { grid-template-columns: minmax(0, 1fr); }
-  .format-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "bill" "story" "side"; }
+  .format-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "story" "side"; }
   .f-story .mock { max-width: 260px; }
   .contact-form { grid-template-columns: minmax(0, 1fr); }
   .ratio-box-wrap { height: 120px; }

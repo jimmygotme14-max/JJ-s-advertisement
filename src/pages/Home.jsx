@@ -10,7 +10,7 @@ import { offerings, steps, work } from '../data/site.js';
 const reasons = [
   { title: 'One team, start to finish', text: 'Strategy, writing, design, video and media buying under one roof. No hand-offs, no finger-pointing.' },
   { title: 'Reports in plain English', text: 'Every month you see what you spent, what it brought in, and what we are changing next.' },
-  { title: 'Built for every screen', text: 'Each idea is made to work on a billboard, in a feed, in an inbox and on video.' },
+  { title: 'Built for every screen', text: 'Each idea is made to work in a feed, in search results, in an inbox and on video.' },
 ];
 
 export default function Home() {

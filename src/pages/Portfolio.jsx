@@ -5,7 +5,7 @@ import WorkCard from '../components/WorkCard.jsx';
 import usePageTitle from '../components/usePageTitle.js';
 import { work } from '../data/site.js';
 
-const filters = ['All', 'Social', 'Email', 'Video', 'Outdoor', 'Display'];
+const filters = ['All', 'Social', 'Email', 'Video', 'Display'];
 
 export default function Portfolio() {
   usePageTitle('Portfolio');
